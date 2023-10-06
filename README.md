@@ -1,1 +1,1 @@
-# vinyl-vault
+# Vinyl Vault
