@@ -2,7 +2,12 @@ const Album = require("../models/album");
 const asyncHandler = require("express-async-handler");
 
 exports.album_list = asyncHandler(async (req, res, next) => {
-  res.send("NOT IMPLEMENTED: Album list");
+  const allAlbums = await Album.find({}, "title artist")
+    .sort({ title: 1 })
+    .populate("artist")
+    .exec();
+
+  res.render("album_list", { title: "Album List", album_list: allAlbums });
 });
 
 exports.album_detail = asyncHandler(async (req, res, next) => {

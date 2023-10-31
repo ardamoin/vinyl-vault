@@ -1,0 +1,12 @@
+extends layout
+
+block content
+    h1=title
+
+    ul
+        each val in artist_list
+            li
+                a(href=val.url) #{val.name} (#{val.date_of_birth_formatted} - #{val.date_of_death_formatted})
+        
+        else 
+            li No artists were found.
